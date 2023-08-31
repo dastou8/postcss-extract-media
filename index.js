@@ -3,9 +3,9 @@ var fileSave = require('file-save');
 var path     = require('path');
 
 module.exports = postcss.plugin('postcss-extract-media', function(opts) {
-    return function(css, result) {
+    return function(css) {
         // get fileinfo
-        var fileinfo = path.parse(result.opts.to);
+        var fileinfo = path.parse(opts.to);
 
         // create a new file
         var newFile = fileSave(fileinfo.dir + '/' + fileinfo.name + opts.prefix + fileinfo.ext);
