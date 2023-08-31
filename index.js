@@ -16,9 +16,11 @@ module.exports = postcss.plugin('postcss-extract-media', function(opts) {
          //let's loop through all rules and extract all @media print
         css.walkAtRules(function(rule) {
             if (rule.name.match(/^media/) && rule.params.match(opts.match)) {
-                rule.params = opts.replace;
+                let newrule = rule.clone();
+                
+                newrule.params = opts.replace;
                 // add the rule to the new css
-                newCss.append(rule);
+                newCss.append(newrule);
 
                 // TODO: maybe add a option (default true) to remove occurences
                 // let's remove all occurences of @media print from the current css
