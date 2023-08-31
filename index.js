@@ -22,7 +22,7 @@ module.exports = postcss.plugin('postcss-extract-media', function(opts) {
 
                 // TODO: maybe add a option (default true) to remove occurences
                 // let's remove all occurences of @media print from the current css
-                rule.remove();
+                //rule.remove();
             }
         });
 
